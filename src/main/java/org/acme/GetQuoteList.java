@@ -1,19 +1,21 @@
 package org.acme;
 
+import jakarta.persistence.EntityManager;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
 
 @Path("/quotes")
 public class GetQuoteList {
 
+    @Inject
+    EntityManager entityManager;
+
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public List<Quote> getAllQuotes(){
-        return QuoteService.em.createQuery("SELECT Id, Quote, Author FROM Quotes", Quote.class).getResultList();
+    public List<QuoteObject> getAllQuotes(){
+        return entityManager.createQuery("SELECT Id, Quote, Author FROM QuoteObject", QuoteObject.class).getResultList();
     }
 
 }
