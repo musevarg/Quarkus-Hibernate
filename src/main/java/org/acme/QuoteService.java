@@ -10,7 +10,7 @@ public class QuoteService {
 
     @Transactional
     public void createQuote(Long id, String quote, String author) {
-        Quote q = new Quote();
+        QuoteObject q = new QuoteObject();
         q.setId(id);
         q.setQuote(quote);
         q.setAuthor(author);
