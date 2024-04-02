@@ -6,7 +6,7 @@ import jakarta.transaction.Transactional;
 
 public class QuoteService {
     @Inject
-    EntityManager em;
+    static EntityManager em;
 
     @Transactional
     public void createQuote(Long id, String quote, String author) {
