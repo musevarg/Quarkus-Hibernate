@@ -17,11 +17,12 @@ public class QuoteService {
     }
 
     @Transactional
-    public void createQuote(Long id, String quote, String author) {
-        QuoteObject q = new QuoteObject();
+    public QuoteObject createQuote(QuoteObject quote) {
+        /*QuoteObject q = new QuoteObject();
         q.setId(id);
         q.setQuote(quote);
-        q.setAuthor(author);
-        em.persist(q);
+        q.setAuthor(author);*/
+        em.persist(quote);
+        return quote;
     }
 }
