@@ -1,12 +1,14 @@
 package org.acme;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
+@ApplicationScoped
 public class QuoteService {
     @Inject
-    static EntityManager em;
+    EntityManager em;
 
     @Transactional
     public void createQuote(Long id, String quote, String author) {
